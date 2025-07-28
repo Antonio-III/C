@@ -1,5 +1,4 @@
 // A program that calculates how many days has it been since Dec 31.
-// (How far along is the date to day 365)
 #include <stdio.h>
 #include <stdlib.h>
 
