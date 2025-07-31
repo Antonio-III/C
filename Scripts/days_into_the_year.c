@@ -14,7 +14,7 @@
 #define HUNDRED_YEARS 100
 #define FOUR_HUNDRED_YEARS 400
 
-int main(int argc, char *argv[]){
+int main(int argc, char *argv[]) {
 	int dd, mm, yyyy;
 	int len_of_feb, day_no, month;
 
@@ -34,19 +34,17 @@ int main(int argc, char *argv[]){
 	
     day_no = dd;
 	
-    for (int curr_mm = 0; curr_mm < mm - 1; curr_mm += 1){
-		if (curr_mm == FEB){
+    for (int curr_mm = 0; curr_mm < mm - 1; curr_mm += 1) {
+		if (curr_mm == FEB) {
 			day_no += len_of_feb;
-		}
-		else if (curr_mm == APR || curr_mm == JUNE || curr_mm == SEP || curr_mm == NOV){
+		} else if (curr_mm == APR || curr_mm == JUNE || curr_mm == SEP || curr_mm == NOV) {
 			day_no += 30;
-		}
-		else{
+		} else {
 			day_no += 31;
 		}
 	}
 
-    if (day_no == 1){
+    if (day_no == 1) {
 	    printf("You are %d day into the year. \n", day_no);    
     } else {
         printf("You are %d days into the year. \n", day_no);
