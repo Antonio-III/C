@@ -1,4 +1,4 @@
-// Calcualte the length of an array using 0 as a sentinel value.
+// Calcualte the length of an array using a sentinel value.
 #include <stdio.h>
 
 #define SENTINEL 0
