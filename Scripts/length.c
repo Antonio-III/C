@@ -4,7 +4,7 @@
 #define SENTINEL 0
 
 // Paste array in the place of { ... }
-#define ARR {2, 3, 4, 5, 11, 25, -1, 0}
+#define ARR {2, 3, 4, 5, 11, 25, -1, SENTINEL}
 
 int len(int array[]);
 

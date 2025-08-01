@@ -15,6 +15,8 @@ int main(int argc, char *argv[]) {
 }
 
 int unique_elems_of_A(int A[], int size){
+	// Return unique elements of A.
+	// O(n^2) time, O(n) space 
 	int unique[size];
 
     int unique_size = 0;
@@ -30,6 +32,7 @@ int unique_elems_of_A(int A[], int size){
 
 int is_unique(int A_i, int unique[], int size){
 	// Find if the current number A_i appears in the uniques-only list
+	// O(n) time, O(1) space
 	for (int i = 0; i < size; i++) {
 		if (A_i == unique[i]) {
 			return 0;
