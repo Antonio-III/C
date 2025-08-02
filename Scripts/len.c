@@ -7,8 +7,9 @@
 #define ARR {2, 3, 4, 5, 11, 25, 1, SENTINEL}
 
 int len(int A[]) {
+    int sentinel = SENTINEL;
     int i = 0; 
-    while (A[i] != SENTINEL) {
+    while (A[i] != sentinel) {
         i++;
     }
     return i;

@@ -66,7 +66,11 @@ binary_search_rec(data_t A[], int low, int high, data_t *key, int *locn) {
 		return NOT_FOUND;
 	}
 
-	mid = (low + high) / 2;
+	// Safer mid point formula is equivalent to (low + high)/2 because when you expand the safer formula, 
+	// it becomes: low + high/2 - low/2. And when you add the lows together: low - low/2 = low/2.
+	// Now, the formula is low/2 + high/2. And when you simplify it: (low + high)/2
+	// The safer formula avoids overflow. Courtesy of ChatGPT.
+	mid = low + (high - low)/2;
 
 	if ((outcome = cmp(key, A+mid)) < 0) {
 		return binary_search_rec(A, low, mid, key, locn);
@@ -89,5 +93,8 @@ len(int A[]) {
 
 int 
 cmp(data_t *x1, data_t *x2) {
-	return (*x1 - *x2);
+	if (*x1 < *x2) return -1;
+	if (*x1 > *x2) return 1; 
+	return 0;
+	
 }
