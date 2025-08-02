@@ -4,7 +4,7 @@
 #define SENTINEL -1
 
 #define ARR {1, 2, 3, SENTINEL}
-#define X 3
+#define X 5
 
 // n is len(A), x is target.
 int binary_search(int A[], int n, int x);
@@ -25,17 +25,17 @@ int main(int argc, char *argv[]) {
 }
 
 int binary_search(int A[], int n, int x) {
-	int low = 0, high = n, mid;
+	int lo = 0, hi = n, m;
     
-	while (low < high) {
+	while (lo < hi) {
         // Integer division guarantees an integer quotient
-		mid = (low + high) / 2;
-		if (x < A[mid]) {
-			low = mid;
-		} else if (x > A[mid]) {
-			low = mid + 1;
+		m = (lo + hi) / 2;
+		if (x < A[m]) {
+			hi = m;
+		} else if (x > A[m]) {
+			lo = m + 1;
 		} else {
-			return mid;
+			return m;
 		}
 	}
 	return NOT_FOUND;
