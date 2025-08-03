@@ -66,7 +66,7 @@ binary_search_rec(data_t A[], int low, int high, data_t *key, int *locn) {
 		return NOT_FOUND;
 	}
 
-	// Safer mid point formula is equivalent to (low + high)/2 because when you expand the safer formula, 
+	// Safer mid point formula and is equivalent to (low + high)/2 because when you expand the safer formula, 
 	// it becomes: low + high/2 - low/2. And when you add the lows together: low - low/2 = low/2.
 	// Now, the formula is low/2 + high/2. And when you simplify it: (low + high)/2
 	// The safer formula avoids overflow. Courtesy of ChatGPT.
