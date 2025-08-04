@@ -10,3 +10,11 @@ void print_array(flex_t A[], int n) {
 	}
 	printf("\n");
 }
+
+int main(int argc, char *argv[]) {
+	flex_t A[] = {1, 2, 3};
+	int n = 3;
+
+	print_array(A, n);
+	return 0;
+}
