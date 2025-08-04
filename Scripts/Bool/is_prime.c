@@ -1,8 +1,11 @@
 // Determine whether or not a number is a prime number.
 
-int isprime(int n);
+int is_prime(int n);
 
-int isprime(int n) {
+int is_prime(int n) {
+    // T: O(2^n)
+    // S: O(1)
+    
     // Prime numbers are by definition greater than 1.
     if (n <= 1) {
         return 0;
