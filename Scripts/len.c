@@ -2,9 +2,11 @@
 #include <stdio.h>
 
 #define SENTINEL -1
-
 // Paste array in the place of { ... }
 #define ARR {2, 3, 4, 5, 11, 25, 1, SENTINEL}
+
+
+int len(int A[]);
 
 int len(int A[]) {
     int sentinel = SENTINEL;
