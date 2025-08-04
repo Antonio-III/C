@@ -1,4 +1,4 @@
-// Calculates the sum of the Triangular number sequence up to the nth term (inclusive).
+// Prints the nth term of the triangular number sequence.
 // The module includes iterative and recursive solutions.
 #include <stdio.h>
 

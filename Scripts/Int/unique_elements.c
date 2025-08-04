@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
 }
 
 int unique_elems_of_A(int A[], int size){
-	// Return unique elements of A.
+	// Return the amount of unique elements in A.
 	// O(n^2) time, O(n) space 
 	int unique[size];
 
