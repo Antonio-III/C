@@ -3,9 +3,9 @@
 
 typedef int data_t;
 
-int cmp(data_t *x1, data_t *x2);
+data_t cmp(data_t *x1, data_t *x2);
 
-int 
+data_t 
 cmp(data_t *x1, data_t *x2) {
 	return (*x1 - *x2);
 }
