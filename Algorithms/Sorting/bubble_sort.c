@@ -3,7 +3,7 @@
 #define ARR {7,6,5,4,3,2,1}
 #define N 7
 
-void bubble_sort(int *p, int n);
+void bubble_sort(int A[], int n);
 void int_swap(int *p1, int *p2);
 void print_arr(int A[], int n);
 
