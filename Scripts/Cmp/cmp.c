@@ -1,5 +1,5 @@
+// Complete implementation of the compare function.
 #include <stdio.h>
-
 
 typedef int data_t;
 
