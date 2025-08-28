@@ -10,8 +10,6 @@ typedef int data_t;
 
 #define X 5
 
-
-// n is len(A), x is target.
 int binary_search_itr(data_t A[], int n, data_t *key, int *locn);
 int binary_search_rec(data_t A[], int lo, int hi, data_t *key, int *locn);
 
