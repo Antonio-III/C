@@ -1,4 +1,4 @@
-// Implementation of Binary Search that returns the index of the first match. Simplified.
+// Implementation of Binary Search that returns the index of the first match. Simplified implementation of iterative and recursive but are not identical.
 #include <stdio.h>
 
 typedef int data_t;

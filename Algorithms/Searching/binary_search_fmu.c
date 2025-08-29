@@ -1,4 +1,4 @@
-// Implementation of Binary Search that returns the index of the first match. Unified.
+// Implementation of Binary Search that returns the index of the first match. Iterative and Recurive function are somewhat unified.
 #include <stdio.h>
 
 typedef int data_t;
