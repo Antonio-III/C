@@ -1,4 +1,4 @@
-// Implementation of Binary Search that returns the index of the first match.
+// Implementation of Binary Search that returns the index of the first match. Unified.
 #include <stdio.h>
 
 typedef int data_t;
@@ -101,6 +101,6 @@ cmp(data_t *x1, data_t *x2) {
 	
 }
 
-int binary_search_rec_wrap(data_t A[], int n, data_t *key, int *locn) {
-	binary_search_rec(A, 0, n, *key, *locn);
+int binary_search_rec_wrapper(data_t A[], int n, data_t *key, int *locn) {
+	binary_search_rec(A, 0, n, key, locn);
 }
