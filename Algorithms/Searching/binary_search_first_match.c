@@ -9,9 +9,10 @@ typedef int data_t;
 #define SENTINEL -1
 #define ARR {1, 1, 1, 1, SENTINEL}
 
-#define X 2
+#define X 1
 
 int binary_search_itr(data_t A[], int n, data_t *key, int *locn);
+int binary_search_rec_wrap(data_t A[], int n, data_t *key, int *locn);
 int binary_search_rec(data_t A[], int lo, int hi, data_t *key, int *locn);
 
 int len(int array[]);
@@ -41,38 +42,33 @@ int
 binary_search_itr(data_t A[], int n, data_t *key, int *locn) {
 	int low = 0, high = n;
 	int mid, outcome;
-	int found = NOT_FOUND;
     
-    // Rewrite to adjust to the new parameters
 	while (low < high) {
-        // Integer division guarantees an integer quotient
-		mid = (low + high) / 2;
+		mid = low + (high - low)/2;
 		if ((outcome = cmp(key, A+mid)) < 0) {
 			high = mid;
 		} else if (outcome > 0) {
 			low = mid + 1;
 		} else {
-			found = mid;
 			high = mid;
 		}
 	}
-    if (found >= 0) {
-        *locn = found;
-    }
-	return found;
+
+	if (mid == low || cmp(key, A+mid-1) != 0) {
+		*locn = low;
+		return FOUND;
+	}
+	return NOT_FOUND;
 }
 
 int 
 binary_search_rec(data_t A[], int low, int high, data_t *key, int *locn) {
 	int mid, outcome;
+	
 	if (low >= high) {
 		return NOT_FOUND;
 	}
 
-	// Safer mid point formula and is equivalent to (low + high)/2 because when you expand the safer formula, 
-	// it becomes: low + high/2 - low/2. And when you add the lows together: low - low/2 = low/2.
-	// Now, the formula is low/2 + high/2. And when you simplify it: (low + high)/2
-	// The safer formula avoids overflow. Courtesy of ChatGPT.
 	mid = low + (high - low)/2;
 
 	if ((outcome = cmp(key, A+mid)) < 0) {
@@ -80,8 +76,11 @@ binary_search_rec(data_t A[], int low, int high, data_t *key, int *locn) {
 	} else if (outcome > 0) {
 		return binary_search_rec(A, mid+1, high, key, locn);
 	} else {
-		*locn = mid;
-		return FOUND;
+		if (mid == low || cmp(key, A+mid-1) != 0) {
+			*locn = mid;
+			return FOUND;
+		}
+		return binary_search_rec(A, low, mid, key, locn);
 	}
 }
 
@@ -100,4 +99,8 @@ cmp(data_t *x1, data_t *x2) {
 	if (*x1 > *x2) return 1; 
 	return 0;
 	
+}
+
+int binary_search_rec_wrap(data_t A[], int n, data_t *key, int *locn) {
+	binary_search_rec(A, 0, n, *key, *locn);
 }
