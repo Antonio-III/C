@@ -50,14 +50,14 @@ binary_search_itr(data_t A[], int n, data_t *key, int *locn) {
 		} else if (outcome > 0) {
 			low = mid + 1;
 		} else {
+			if (mid == low || cmp(key, A+mid-1) != 0) {
+				*locn = low;
+				return FOUND;
+			}
 			high = mid;
 		}
 	}
 
-	if (mid == low || cmp(key, A+mid-1) != 0) {
-		*locn = low;
-		return FOUND;
-	}
 	return NOT_FOUND;
 }
 
