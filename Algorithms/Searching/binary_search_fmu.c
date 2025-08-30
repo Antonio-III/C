@@ -27,8 +27,6 @@ main(int argc, char *argv[]) {
 
 	int locn, out;
 
-	// handle output based on results.
-	// Recursive is called like binary_search_rec(A, 0, n, &i, &locn)
 	if ((out = binary_search_itr(A, n, &key, &locn)) == NOT_FOUND) {
 		printf("x is not in A.\n");
 	} else {
