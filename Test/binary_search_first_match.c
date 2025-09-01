@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 typedef int data_t;
-//a
+
 #define FOUND 1
 #define NOT_FOUND -1
 
