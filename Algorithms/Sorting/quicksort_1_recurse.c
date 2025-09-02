@@ -1,3 +1,5 @@
+// This module is an exercise to modify quicksort to have 1 recursive call and 1 loop as opposed to having 2 recursive calls and 0 loops.
+
 #include <stdio.h>
 #include <assert.h>
 
@@ -44,7 +46,23 @@ quick_sort(data_t A[], int n) {
 
     // 3.
     quick_sort(A, first_eq);
-    quick_sort(A+first_gt, n-first_gt);
+
+    data_t *G = A+first_gt;
+    int G_size = n-first_gt;
+    int next = 0, fe = 0, fg = n, outcome;
+
+    while (next < fg) {
+        if ((outcome = cmp(A+next, pivot)) < 0) {
+            swap(A+fe, A+next);
+            fe += 1;
+            next += 1;
+        } else if (outcome > 0) {
+            fg -= 1;
+            swap(A+next, A+fg);
+        } else {
+            next += 1;
+        }
+    }
 }
 
 data_t 
@@ -74,7 +92,7 @@ partition(data_t A[], int n, data_t *pivot, int *first_eq, int *first_gt) {
             next += 1;
         }
     }
-
+    
     assert(0 <= fe);
     *first_eq = fe;
     *first_gt = fg;

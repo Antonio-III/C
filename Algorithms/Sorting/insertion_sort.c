@@ -15,18 +15,18 @@ insertion_sort(flex_t A[], int n) {
     // T: O((n-1)n/2)
     // S: O(1)
     int i, j;
-	for (i = 1; i < n; i++) {
-		for (j = i - 1; j >= 0 && A[j + 1] < A[j]; j--) {
-			swap(&A[j], &A[j+1]);
-		}
-	}
+    for (i = 1; i < n; i++) {
+        for (j = i - 1; j >= 0 && A[j + 1] < A[j]; j--) {
+            swap(&A[j], &A[j+1]);
+        }
+    }
 }
 
 void print_array(flex_t A[], int n) {
-	for (int i = 0; i < n; i++) {
-		printf(" %d", A[i]);
-	}
-	printf("\n");
+    for (int i = 0; i < n; i++) {
+        printf(" %d", A[i]);
+    }
+    printf("\n");
 }
 
 void 
@@ -40,15 +40,15 @@ swap(flex_t *p1, flex_t *p2) {
 
 int
 main(int argc, char *argv[]) {
-	int A[] = ARR;
-	int n = N;
+    int A[] = ARR;
+    int n = N;
     printf("Before:");
     print_array(A, n);
 
-	insertion_sort(A, n);
+    insertion_sort(A, n);
 
-	printf("After:");
-	print_array(A, n);
-	
-	return 0;
+    printf("After:");
+    print_array(A, n);
+    
+    return 0;
 }
