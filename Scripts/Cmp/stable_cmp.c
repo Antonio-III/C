@@ -33,11 +33,11 @@ main(int argc, char *argv[]) {
 
 int 
 stable_cmp(const struct_t *a, const struct_t *b) {
-	if (a->value < b->value) return -1;
-	if (a->value > b->value) return 1;
+    if (a->value < b->value) return -1;
+    if (a->value > b->value) return 1;
 
-	if (a->index < b->index) return -1;
-	if (a->index > b->index) return 1;
+    if (a->index < b->index) return -1;
+    if (a->index > b->index) return 1;
 
     return 0;
 

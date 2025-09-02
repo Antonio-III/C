@@ -7,7 +7,7 @@ flex_t cmp(flex_t *x1, flex_t *x2);
 
 flex_t 
 cmp(flex_t *x1, flex_t *x2) {
-	return (*x1 - *x2);
+    return (*x1 - *x2);
 }
 
 int
