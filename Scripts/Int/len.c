@@ -19,7 +19,7 @@ int len(int A[]) {
 
 int main(int argc, char *argv[]) {
     int A[] = ARR;
-	int length_of_arr = len(A);
+    int length_of_arr = len(A);
 
     printf("The length of the array is %d\n", length_of_arr);
     return 0;
