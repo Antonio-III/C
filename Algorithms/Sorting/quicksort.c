@@ -6,8 +6,8 @@
 typedef int data_t;
 
 void quick_sort(data_t A[], int n);
-data_t *choose_pivot(data_t A[], int n);
-void partition(data_t A[], int n, data_t *pivot, int *first_eq, int *first_gt);
+data_t choose_pivot(data_t A[], int n);
+void partition(data_t A[], int n, data_t pivot, int *first_eq, int *first_gt);
 
 // imports
 void print_array(data_t A[], int n);
@@ -37,7 +37,7 @@ quick_sort(data_t A[], int n) {
         return;	
     }
     // 1.
-    data_t *pivot = choose_pivot(A, n);
+    data_t pivot = choose_pivot(A, n);
 
     // 2.
     partition(A, n, pivot, &first_eq, &first_gt);
@@ -48,22 +48,22 @@ quick_sort(data_t A[], int n) {
 }
 
 data_t 
-*choose_pivot(data_t A[], int n) {
+choose_pivot(data_t A[], int n) {
     // 4.
-    return &A[0];
+    return A[0];
 
     // return &A[rand()%n];
     // return &A[n/2];
 }
 
 void 
-partition(data_t A[], int n, data_t *pivot, int *first_eq, int *first_gt) {
+partition(data_t A[], int n, data_t pivot, int *first_eq, int *first_gt) {
 
     // T: O(n) worst, O(log n) average
     int next = 0, fe = 0, fg = n, outcome;
 
     while (next < fg) {
-        if ((outcome = cmp(A+next, pivot)) < 0) {
+        if ((outcome = cmp(A+next, &pivot)) < 0) {
             swap(A+fe, A+next);
             fe += 1;
             next += 1;

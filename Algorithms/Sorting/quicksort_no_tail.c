@@ -1,5 +1,3 @@
-// This module is an exercise to modify quicksort to have 1 recursive call and 1 loop as opposed to having 2 recursive calls and 0 loops.
-
 #include <stdio.h>
 #include <assert.h>
 
@@ -8,8 +6,8 @@
 typedef int data_t;
 
 void quick_sort(data_t A[], int n);
-data_t *choose_pivot(data_t A[], int n);
-void partition(data_t A[], int n, data_t *pivot, int *first_eq, int *first_gt);
+data_t choose_pivot(data_t A[], int n);
+void partition(data_t A[], int n, data_t pivot, int *first_eq, int *first_gt);
 
 // imports
 void print_array(data_t A[], int n);
@@ -39,49 +37,33 @@ quick_sort(data_t A[], int n) {
         return;	
     }
     // 1.
-    data_t *pivot = choose_pivot(A, n);
+    data_t pivot = choose_pivot(A, n);
 
     // 2.
     partition(A, n, pivot, &first_eq, &first_gt);
 
     // 3.
     quick_sort(A, first_eq);
-
-    data_t *G = A+first_gt;
-    int G_size = n-first_gt;
-    int next = 0, fe = 0, fg = n, outcome;
-
-    while (next < fg) {
-        if ((outcome = cmp(A+next, pivot)) < 0) {
-            swap(A+fe, A+next);
-            fe += 1;
-            next += 1;
-        } else if (outcome > 0) {
-            fg -= 1;
-            swap(A+next, A+fg);
-        } else {
-            next += 1;
-        }
-    }
+    quick_sort(A+first_gt, n-first_gt);
 }
 
 data_t 
-*choose_pivot(data_t A[], int n) {
+choose_pivot(data_t A[], int n) {
     // 4.
-    return &A[0];
+    return A[0];
 
     // return &A[rand()%n];
     // return &A[n/2];
 }
 
 void 
-partition(data_t A[], int n, data_t *pivot, int *first_eq, int *first_gt) {
+partition(data_t A[], int n, data_t pivot, int *first_eq, int *first_gt) {
 
     // T: O(n) worst, O(log n) average
     int next = 0, fe = 0, fg = n, outcome;
 
     while (next < fg) {
-        if ((outcome = cmp(A+next, pivot)) < 0) {
+        if ((outcome = cmp(A+next, &pivot)) < 0) {
             swap(A+fe, A+next);
             fe += 1;
             next += 1;
@@ -92,7 +74,7 @@ partition(data_t A[], int n, data_t *pivot, int *first_eq, int *first_gt) {
             next += 1;
         }
     }
-    
+
     assert(0 <= fe);
     *first_eq = fe;
     *first_gt = fg;
