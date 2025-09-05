@@ -2,7 +2,7 @@
 // Courtesy of ChatGPT.
 
 // For this stable comparison function to work, you need:
-    // 1. A working stable partition in conjunction.
+    // 1. A working stable partition.
     // 2. An updated input array to work with structs.
 
 typedef int flex_t;
