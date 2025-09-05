@@ -3,22 +3,20 @@
 
 typedef int data_t; 
 
-void partition(data_t A[], int n);
+int partition(data_t A[], int n);
 
-void 
+int 
 partition(data_t A[], int n) {
     // T: O(n)
-
-    int i = 0;
-    data_t pivot = A[0];
-
-    // Note how we start at a value above the pivot.
-    for (int j=1; j<n; j++) {
+    data_t pivot = A[n-1];
+    int i = -1;
+    
+    for (int j = 0; j < n-1; j++) {
         if (A[j] < pivot) {
             i++;
             swap(&A[i], &A[j]);
         }
     }
-    swap(&A[0], &A[i]);
+    swap(&A[i+1], &A[n-1]);
     return i;
 }
