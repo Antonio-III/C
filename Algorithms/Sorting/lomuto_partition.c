@@ -16,7 +16,7 @@ partition(data_t A[], int n) {
     for (int j=1; j<n; j++) {
         if (A[j] < pivot) {
             i++;
-            swap(&A[j], &pivot);
+            swap(&A[i], &A[j]);
         }
     }
     swap(&A[0], &A[i]);
