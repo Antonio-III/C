@@ -10,7 +10,7 @@ partition(data_t A[], int n) {
     // T: O(n)
     data_t pivot = A[n-1];
     int i = -1;
-    
+
     for (int j = 0; j < n-1; j++) {
         if (A[j] < pivot) {
             i++;
@@ -18,5 +18,5 @@ partition(data_t A[], int n) {
         }
     }
     swap(&A[i+1], &A[n-1]);
-    return i;
+    return i+1;
 }
