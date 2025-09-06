@@ -104,7 +104,8 @@ print_array(data_t A[], int n) {
     printf("\n");
 }
 
-void swap(data_t *p1, data_t *p2) {
+void 
+swap(data_t *p1, data_t *p2) {
     data_t temp;
     temp = *p1;
     *p1 = *p2;
