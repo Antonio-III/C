@@ -6,51 +6,53 @@
 
 int kth_smallest(int A[], int n, int smallest, int sentinel);
 int min(int A[], int n);
+int cmp(int *x1, int *x2);
 
 int main(int argc, char *argv[]) {
     int A[] = ARR;
     int n = N;
 
-    int nth;
 
-    // printf("Which kth smallest item do you want to find?\n");
-    
-    
-    // if (scanf("%d", &nth) != 1) {
-    //     printf("Invalid input. Program exit.\n");
-    // }
-
-    // printf("The kth smallest item is %d.\n", kth_smallest(A, n, nth, SENTINEL));
-    printf("The min value of A is %d\n", min(A, n));
+    int old_num = 22;
+    printf("The next greater than %d is %d.\n", old_num, next_greater_num(A, n, old_num));
     return 0;
 }
 
 // The logic here is faulty.
 int kth_smallest(int A[], int n, int nth, int sentinel) {
-    // Helper function requires a sentinel value.
-    // Array A must not have values lesser than -1.
-    int out = min(A, n);
-
-    for (int i = 0; i < nth-1; i++) {
-        out = min(A, n);
+    int out;
+    int prev_smallest = min(A, n);
+    
+    for (int i = 0; i < nth; i++) {
+        for (int j = 0; j < n; j++) {
+            if (A[j] < prev_smallest && A[j]) {
+                continue;
+            }
+        }
     }
-    return out;
 }
 
 
 int min(int A[], int n) {
     // Min function that uses a sentinel value.
     // Array A cannot values lesser than -1.
-    int out = -1;
-    for (int i = 0; i < n; i++) {
-        if (i == 0) {
-            out = A[i];
-            continue;
-        }
+    if (n <= 0) {
+        printf("Min number not found. Returning -1 instead.\n.");
+        return -1;
+    }
 
+    int out = A[n-1];
+    for (int i = 0; i < n-1; i++) {
         if (A[i] < out) {
             out = A[i];
         }
     }
     return out;
+}
+
+
+int 
+cmp(int *x1, int *x2) { 
+    printf("x1=%d, x2=%d\n", *x1, *x2);
+    return (*x1 - *x2); 
 }
