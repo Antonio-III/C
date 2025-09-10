@@ -3,8 +3,7 @@
 int next_greater_num(int A[], int n, int old_num);
 
 int next_greater_num(int A[], int n, int old_num) {
-    // T: O(n) worst/average. 
-    // S: O(1)
+    // T: O(n) average and worst, S: O(1)
     if (n <= 0) {
         return old_num;
     }
