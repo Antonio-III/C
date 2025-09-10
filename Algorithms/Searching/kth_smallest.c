@@ -3,12 +3,14 @@
 #define ARR {1, 1, 2}
 #define N 3
 
-int kth_smallest(int A[], int n, int k);
+typedef int flex_t;
+
+flex_t kth_smallest(flex_t A[], int n, int k);
 
 // Imports
-int min(int A[], int n);
-int cmp(int *x1, int *x2);
-int next_greater_num(int A[], int n, int old_num);
+flex_t min(flex_t A[], int n);
+flex_t cmp(flex_t *x1, flex_t *x2);
+flex_t next_greater_num(flex_t A[], int n, flex_t old_num);
 
 
 int main(int argc, char *argv[]) {
@@ -24,23 +26,23 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
-int kth_smallest(int A[], int n, int k) {
+flex_t kth_smallest(flex_t A[], int n, int k) {
     // T: O(nk) average, O(n^2) worst. S: O(1)
-    int smallest = min(A, n);
+    flex_t candidate = min(A, n);
     
-    for (int i = 0; i < k-1; i++) {
-        smallest = next_greater_num(A, n, smallest);
+    for (int i = 1; i < k; i++) {
+        candidate = next_greater_num(A, n, candidate);
     }
-    return smallest;
+    return candidate;
 }
 
 
-int min(int A[], int n) {
+flex_t min(flex_t A[], int n) {
     if (n <= 0) {
         return -1;
     }
     
-    int out = A[n-1];
+    flex_t out = A[n-1];
 
     for (int i = 0; i < n-1; i++) {
         if (A[i] < out) {
@@ -52,20 +54,20 @@ int min(int A[], int n) {
 }
 
 
-int 
-cmp(int *x1, int *x2) {
+flex_t 
+cmp(flex_t *x1, flex_t *x2) {
     return (*x1 - *x2); 
 }
 
 
-int next_greater_num(int A[], int n, int old_num) {
+flex_t next_greater_num(flex_t A[], int n, flex_t old_num) {
     if (n <= 0) {
         return old_num;
     }
 
     int prev_cmp, next_cmp;
 
-    int new_num = old_num;
+    flex_t new_num = old_num;
     int i, j;
 
     for (i = 0; i < n; i++) {
