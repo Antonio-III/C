@@ -1,9 +1,13 @@
 // Find the next greatest number after the old number. Return old number if none exists.
+// T: O(n) average and worst
+// S: O(1)
+
 typedef int flex_t;
+
 int next_greater_num(flex_t A[], int n, flex_t old_num);
 
-int next_greater_num(flex_t A[], int n, flex_t old_num) {
-    // T: O(n) average and worst, S: O(1)
+int 
+next_greater_num(flex_t A[], int n, flex_t old_num) {
     if (n <= 0) {
         return old_num;
     }

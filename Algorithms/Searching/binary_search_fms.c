@@ -104,6 +104,7 @@ cmp(data_t *x1, data_t *x2) {
     
 }
 
-int binary_search_rec_wrap(data_t A[], int n, data_t *key, int *locn) {
+int 
+binary_search_rec_wrap(data_t A[], int n, data_t *key, int *locn) {
     binary_search_rec(A, 0, n, *key, *locn);
 }

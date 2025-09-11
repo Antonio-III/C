@@ -5,14 +5,17 @@
 
 typedef int flex_t;
 
-flex_t choose_pivot(flex_t A[], int n);
+flex_t 
+quickselect(flex_t A[], int n, int k);
 
 // Imports
+flex_t choose_pivot(flex_t A[], int n);
 void partition(flex_t A[], int n, flex_t *pivot, int *first_eq, int *first_gt);
 flex_t cmp(flex_t *x1, flex_t *x2);
 void swap(flex_t *p1, flex_t *p2);
 
-flex_t quickselect(flex_t A[], int n, int k) {
+flex_t 
+quickselect(flex_t A[], int n, int k) {
     if (n <= 0) {
         return 0;
     }
@@ -35,6 +38,10 @@ flex_t quickselect(flex_t A[], int n, int k) {
     }
 }
 
+flex_t 
+choose_pivot(flex_t A[], int n) {
+    return A[0];
+}
 
 void 
 partition(flex_t A[], int n, flex_t *pivot, int *first_eq, int *first_gt) {
@@ -65,7 +72,8 @@ cmp(flex_t *x1, flex_t *x2) {
     else return 0;
 }
 
-void swap(flex_t *p1, flex_t *p2) {
+void 
+swap(flex_t *p1, flex_t *p2) {
     flex_t temp;
     temp = *p1;
     *p1 = *p2;
