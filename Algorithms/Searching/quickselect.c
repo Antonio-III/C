@@ -1,5 +1,5 @@
 // A generic implementation of the quickselect algorithm. 
-// Due to the function returning a flexible data type, it is not recommended to pass an empty array to the function since it returns 0 by default, potentially causing a type mismatch.
+// Currently, the function returns 0 if no elements are passed. Therefore, it is not recommended to let flex_t be anything but int.
 // T: O(n) average and worst.
 // S: O(1)
 
