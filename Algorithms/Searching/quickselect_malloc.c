@@ -1,3 +1,8 @@
+// An implementation of the quickselect algorithm that makes a copy of the size of the passed array, 3 times. Can be used if no modification is allowed on the passed array, but it may be better to just copy the array first and then pass the copy to the generic implementation than using this function.
+// Due to the function returning a flexible data type, it is not recommended to pass an empty array to the function since it returns 0 by default, potentially causing a type mismatch.
+// T: O(n)
+// S: O(n)
+
 typedef int flex_t;
 
 // Imports
@@ -6,8 +11,10 @@ flex_t choose_pivot(flex_t A[], int n);
 flex_t 
 quickselect_kth(flex_t A[], int n, int k) {
     if (n <= 0) {
-        return;
-    } else if (n == 1) {
+        return 0;
+    }
+    
+    if (n == 1) {
         return A[0];
     }
 
@@ -41,7 +48,4 @@ quickselect_kth(flex_t A[], int n, int k) {
 flex_t 
 choose_pivot(flex_t A[], int n) {
     return A[0];
-
-    // return A[rand()%n];
-    // return A[n/2];
 }

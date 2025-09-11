@@ -1,6 +1,10 @@
+// Implementation of an algorithm that finds the kth-smallest item in an unsorted array at O(nk) time at worst.
+// T: O(nk) average, O(n^2) worst
+// S: O(1)
+
 #include <stdio.h>
 
-#define ARR {1, 1, 2}
+#define ARR {1, 2, 3}
 #define N 3
 
 typedef int flex_t;
@@ -12,8 +16,8 @@ flex_t min(flex_t A[], int n);
 flex_t cmp(flex_t *x1, flex_t *x2);
 flex_t next_greater_num(flex_t A[], int n, flex_t old_num);
 
-
-int main(int argc, char *argv[]) {
+int 
+main(int argc, char *argv[]) {
     int A[] = ARR;
     int n = N;
     int k;
@@ -26,8 +30,8 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
-flex_t kth_smallest(flex_t A[], int n, int k) {
-    // T: O(nk) average, O(n^2) worst. S: O(1)
+flex_t 
+kth_smallest(flex_t A[], int n, int k) {
     flex_t candidate = min(A, n);
     
     for (int i = 1; i < k; i++) {
@@ -37,7 +41,8 @@ flex_t kth_smallest(flex_t A[], int n, int k) {
 }
 
 
-flex_t min(flex_t A[], int n) {
+flex_t 
+min(flex_t A[], int n) {
     if (n <= 0) {
         return -1;
     }
@@ -60,7 +65,8 @@ cmp(flex_t *x1, flex_t *x2) {
 }
 
 
-flex_t next_greater_num(flex_t A[], int n, flex_t old_num) {
+flex_t 
+next_greater_num(flex_t A[], int n, flex_t old_num) {
     if (n <= 0) {
         return old_num;
     }
