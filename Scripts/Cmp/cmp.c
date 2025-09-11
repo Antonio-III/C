@@ -1,10 +1,12 @@
-// Complete implementation of the compare function.
+// Implementations of the compare function.
 #include <stdio.h>
 
 typedef int flex_t;
 
 flex_t cmp(flex_t *x1, flex_t *x2);
 
+// Relative comparison
+// T: O(1). S: O(1)
 flex_t 
 cmp(flex_t *x1, flex_t *x2) {
     if (*x1 < *x2) return -1;
@@ -12,9 +14,11 @@ cmp(flex_t *x1, flex_t *x2) {
     else return 0;
 }
 
-// less stable version
+// Absolute comparison
+// T: O(1). S: O(1)
 flex_t 
 cmp(flex_t *x1, flex_t *x2) { 
+    
     return (*x1 - *x2); 
 }
 

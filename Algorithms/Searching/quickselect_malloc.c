@@ -34,7 +34,7 @@ quickselect_kth(flex_t A[], int n, int k) {
     flex_t result;
 
     if (k <= l) {
-        return quickselect_kth(L, l, k);
+        result = quickselect_kth(L, l, k);
     } else if (k <= l + e) {
         result = pivot;
     } else {
