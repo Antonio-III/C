@@ -2,6 +2,8 @@
 // Currently, the function returns 0 if no elements are passed. Therefore, it is not recommended to let flex_t be anything but int.
 // T: O(n) average and worst.
 // S: O(1)
+#include <assert.h>
+#include <stdlib.h>
 
 typedef int flex_t;
 
@@ -16,14 +18,8 @@ void swap(flex_t *p1, flex_t *p2);
 
 flex_t 
 quickselect(flex_t A[], int n, int k) {
-    if (n <= 0) {
-        return 0;
-    }
-
-    if (n == 1) {
-        return A[0];
-    }
-
+    assert(A != NULL && n > 0 && k < n);
+    
     flex_t pivot = choose_pivot(A, n);
     
     int fe, fg;
