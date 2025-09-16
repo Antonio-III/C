@@ -17,14 +17,19 @@ int main(int argc, char *argv[]) {
         return 0;
     }
     i = exponential_search(A, n, x);
-    printf("%d could be found at A[%d], if it exists.\n", x, i);
+    if (i >= n) {
+        printf("%d is greater than all the elements.\n");
+    } else {
+        printf("%d could be found at A[%d], if it exists.\n", x, i);
+    }
     return 0;
 }
 
 
 int exponential_search(int A[], int n, int x) {
-    if (n == 0) return -1;
+    if (n == 0) return 0;
     if (A[0] >= x) return 0;
+    if (A[n-1] < x) return n;
 
     int bound = 1;
     while (bound < n && A[bound] < x) {
@@ -41,5 +46,6 @@ int exponential_search(int A[], int n, int x) {
             right = mid;
         }
     }
+
     return left;
 }
