@@ -1,4 +1,6 @@
 // This module is a modification of the partition function in quicksort. The modification allows quicksort to preserve the order of items with equal keys. That is to say, the first instance of duplicate keys is preserved to be the first instance of duplicate keys as opposed to the original quicksort which shuffles the equal keys.
+// T: O(n)
+// S: O(n)
 // Courtesy of ChatGPT.
 
 typedef flex_t;
