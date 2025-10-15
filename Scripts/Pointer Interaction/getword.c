@@ -1,5 +1,5 @@
 /* 
-The function takes standard input and assigns a word to a pointer to a char. A word is defined by a sequence of only alphabetical characters.
+The function takes standard input and extracts 1 word. A word is defined by a sequence of only alphabetical characters.
 
 This is a helper function that's part of a bigger program. 
 */

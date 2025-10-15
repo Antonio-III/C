@@ -1,4 +1,4 @@
-// Implementations of the compare function.
+// Relative and Absoulute implementations of the compare function.
 #include <stdio.h>
 
 typedef int flex_t;

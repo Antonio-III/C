@@ -1,4 +1,4 @@
-// stable_swap is a version of the swap function in quicksort. 
+// This is a version of the swap function in quicksort. 
 // Its purpose is to make quicksort a stable sorting algorithm. 
 // Its runtime degenerates to N from constant.
 // This function is untested so it is not clear if this is the correct implementation for all swap cases in quicksort.
