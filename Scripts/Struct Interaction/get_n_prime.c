@@ -86,7 +86,7 @@ linked_list_t
 
     assert(mylist);
 
-    mylist->head  = mylist->foot = NULL;
+    mylist->head = mylist->foot = NULL;
 
     return mylist;
 }
