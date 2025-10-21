@@ -1,0 +1,3 @@
+/*
+A stack structure implemented with a static array along with its operations.
+*/

@@ -27,7 +27,7 @@ list_t
 }
 
 int
-is_empty(list_t *list) {
+is_empty_list(list_t *list) {
     assert(list != NULL);
     return list->head == NULL;
 }
