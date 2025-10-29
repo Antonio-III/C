@@ -1,3 +1,6 @@
+// This is a module to define a binary search tree, along with some functions to operate on the struct.
+// This module has no main function, so do not compile it. Only use this module to be included to some other module.
+// Do note of the treeops header and always be sure the directory points to the correct file.
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
@@ -50,7 +53,7 @@ int cmp(void *, void *)) {
     root->left = recursive_insert(root->left, new, cmp);
 
     else return
-    root->right = recurisve_insert(root->right, new, cmp);
+    root->right = recursive_insert(root->right, new, cmp);
 
     return root;
 }
