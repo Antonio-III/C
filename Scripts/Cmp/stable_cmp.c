@@ -1,4 +1,4 @@
-// This module is a modification of the cmp function. 
+// This module is a modification of the cmp function. This cmp function is only used for quicksort.
 // Courtesy of ChatGPT.
 
 // For this stable comparison function to work, you need:

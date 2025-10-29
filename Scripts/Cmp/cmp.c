@@ -3,23 +3,28 @@
 
 typedef int flex_t;
 
-flex_t cmp(flex_t *x1, flex_t *x2);
+flex_t cmp(void *x1, void *x2);
 
 // Relative comparison
 // T: O(1). S: O(1)
-flex_t 
-cmp(flex_t *x1, flex_t *x2) {
-    if (*x1 < *x2) return -1;
-    else if (*x1 > *x2) return 1;
+int 
+cmp(void *a, void *b) {
+    flex_t *x = a;
+    flex_t *y = b;
+
+    if (*x < *y) return -1;
+    else if (*x > *y) return 1;
     else return 0;
 }
 
 // Absolute comparison
 // T: O(1). S: O(1)
 flex_t 
-cmp(flex_t *x1, flex_t *x2) { 
-    
-    return (*x1 - *x2); 
+cmp(void *a, void *b) { 
+    flex_t *x = a;
+    flex_t *y = b;
+
+    return (*x - *y); 
 }
 
 int
