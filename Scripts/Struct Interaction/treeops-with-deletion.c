@@ -14,45 +14,50 @@ tree_t *make_empty_tree(int func(void *, void *)) {
 
     tree->root = NULL;
     tree->cmp = func;
+	
     return tree;
 }
 
 int is_empty_tree(tree_t *tree) {
-    assert(tree);
+    assert(tree != NULL);
+	
     return tree->root == NULL;
 }
+
+static void *recursive_search_tree(node_t *, void *, 
+int (void *, void *));
 
 static void *recursive_search_tree(node_t *root, void *key, 
 int cmp(void *, void *)) {
     int outcome;
     if (!root) return NULL;
 
-    if ((outcome = cmp(key, root->data)) < 0) return 
+    if ((outcome = cmp(key, root->data)) < 0) return
     recursive_search_tree(root->left, key, cmp);
     
     else if (outcome > 0) return
-    
     recursive_search_tree(root->right, key, cmp);
+	
     else return root->data;
 }
+
 // 2
 void *search_tree(tree_t *tree, void *key) {
     assert(tree != NULL);
     return recursive_search_tree(tree->root, key, tree->cmp);
 }
 
-static node_t *recursive_insert(node_t *, node_t *, int(void *, void *));
+static node_t *recursive_insert(node_t *, node_t *, int (void *, void *));
 
 // 3
 static node_t *recursive_insert(node_t *root, node_t *new, 
 int cmp(void *, void *)) {
-    int outcome;
     if (root == NULL) return new;
 
-    else if (outcome = cmp(new->data, root->data) < 0) return
+    else if (cmp(new->data, root->data) < 0)
     root->left = recursive_insert(root->left, new, cmp);
 
-    else return
+    else
     root->right = recursive_insert(root->right, new, cmp);
 
     return root;
@@ -72,7 +77,7 @@ tree_t *insert_tree_in_order(tree_t *tree, void *value) {
     return tree;
 }
 
-static void recursive_traverse(node_t *, void action(void *));
+static void recursive_traverse(node_t *, void (void *));
 // 5
 static void recursive_traverse(node_t *root, void action(void *)) {
     if (root != NULL) {
@@ -95,4 +100,9 @@ static void recursive_free_tree(node_t *root) {
         recursive_free_tree(root->right);
         free(root);
     }
+}
+
+void free_tree(tree_t *tree) {
+	recursive_free_tree(tree->root);
+	free(tree);
 }
