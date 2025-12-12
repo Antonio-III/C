@@ -5,7 +5,7 @@ This is a helper function that's part of a bigger program.
 */
 
 #include <stdio.h>
-#include  <ctype.h>
+#include <ctype.h>
 
 int 
 getword(char W[], int limit) {

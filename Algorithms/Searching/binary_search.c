@@ -44,7 +44,7 @@ binary_search_itr(data_t A[], int n, data_t *key, int *locn) {
     // Rewrite to adjust to the new parameters
     while (low < high) {
         // Integer division guarantees an integer quotient
-        mid = (low + high) / 2;
+        mid = low + (high - low)/2;
         if ((outcome = cmp(key, A+mid)) < 0) {
             high = mid;
         } else if (outcome > 0) {
